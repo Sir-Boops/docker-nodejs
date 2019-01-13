@@ -10,6 +10,6 @@ RUN apk upgrade && \
 	tar xf node-v$NODEJS_VER.tar.xz && \
 	cd node-v$NODEJS_VER && \
 	./configure --prefix=/opt/node && \
-	make -j$(nproc) && \
+	make -j$(nproc) > /dev/null && \
 	make install && \
 	rm -rf ~/*
