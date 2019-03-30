@@ -3,7 +3,7 @@ pipeline:
         image: plugins/docker
         dockerfile: Dockerfile
         repo: sirboops/nodejs
-        tags: 8.15.0
+        tags: 8.15.1
         experimental: true
         squash: true
         secrets: [ docker_username, docker_password ]
