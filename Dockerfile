@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-ENV NODE_VER="8.15.1"
+ENV NODE_VER="8.16.0"
 RUN echo "Etc/UTC" > /etc/localtime && \
 	apt update && \
 	apt -y dist-upgrade && \
