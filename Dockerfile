@@ -1,6 +1,6 @@
 FROM alpine:3.10.2
 
-ENV NODEJS_VER="8.16.1"
+ENV NODEJS_VER="12.11.1"
 
 RUN apk upgrade && \
 	apk add python make gcc g++ \
