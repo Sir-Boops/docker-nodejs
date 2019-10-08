@@ -1,14 +1,16 @@
-FROM ubuntu:18.04
 
-ENV NODE_VER="8.16.1"
-RUN echo "Etc/UTC" > /etc/localtime && \
-	apt update && \
-	apt -y dist-upgrade && \
-	apt -y install wget make gcc g++ python && \
+FROM alpine:3.10.2
+
+ENV NODEJS_VER="12.11.1"
+
+RUN apk upgrade && \
+	apk add python make gcc g++ \
+		linux-headers libstdc++ && \
 	cd ~ && \
-	wget https://nodejs.org/download/release/v$NODE_VER/node-v$NODE_VER.tar.gz && \
-	tar xf node-v$NODE_VER.tar.gz && \
-	cd node-v$NODE_VER && \
+	wget https://nodejs.org/download/release/v$NODEJS_VER/node-v$NODEJS_VER.tar.xz && \
+	tar xf node-v$NODEJS_VER.tar.xz && \
+	cd node-v$NODEJS_VER && \
 	./configure --prefix=/opt/node && \
 	make -j$(nproc) > /dev/null && \
-	make install
+	make install && \
+	rm -rf ~/*
